@@ -1,5 +1,7 @@
 const gridContainer = document.getElementById('grid-container');
 const btn = document.getElementById('btn');
+const chkBx = document.querySelector('#rainbowCheckbox');
+
 
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
@@ -18,13 +20,16 @@ function createGrid(rows, columns) {
 
         square.classList.add('grid-square');
         gridContainer.appendChild(square);
-
-        square.addEventListener('mouseover', () => {
-            square.style.backgroundColor = getRandomColor();
-        })
-    }
+        
     
- 
+        square.addEventListener('mouseover', () => {
+            if(chkBx.checked){
+            square.style.backgroundColor = getRandomColor();
+            } else {
+            square.style.backgroundColor = 'black';
+            }
+        })
+}
 }
 
 createGrid(16, 16)
